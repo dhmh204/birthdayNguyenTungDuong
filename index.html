@@ -27,7 +27,7 @@
             </video>
             <div class="react-joyride"></div>
             <div class="react-joyride"></div>
-            <audio src="./assets/hbd2.mp3" preload="auto" >
+            <audio id="audio" src="./assets/hbd2.mp3" preload="auto" >
 
             </audio>
             <div class="caption">
@@ -60,6 +60,10 @@
         <div class="volume-display" id="volumeDisplay" style="z-index: 10000;">Độ lớn âm thanh: 0</div>
     </div>
         <script>
+            const audio = document.getElementById('audio');
+            audio.play().catch(error => {
+                console.error("Lỗi khi phát âm thanh:", error);
+            });
             if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
                 alert("Trình duyệt của bạn không hỗ trợ microphone.");
             } else {
